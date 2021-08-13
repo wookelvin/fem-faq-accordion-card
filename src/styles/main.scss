@@ -1,0 +1,18 @@
+@import "./variables";
+@import "./fonts";
+
+html{ 
+  background: linear-gradient(0deg, $color-gradient-violet 0%, $color-gradient-blue 100%);
+  min-height:100vh;
+}
+
+body{ 
+  min-height:100vh;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-item:not(:first-of-type){ 
+  border-top: 1px solid $color-neutral-divider-blue;
+}
