@@ -1,29 +1,36 @@
 <template>
-  <div class="faq-item" :class="{'show':show}">
-    <button class="question" @click="show = !show">
+  <button @click="onClick" class="faq-item" :class="{'show':show}">
+    <div class="question">
       <strong>{{q}}</strong>
       <span class="icon" v-if="!show">+</span>
       <span class="icon" v-else>&#8211;</span>
-    </button>
+    </div>
     <div class="answer">
       <slot></slot>
     </div>
-  </div>
+  </button>
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from 'vue'
+import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'FAQItem',
+  emits: ['clicked'],
   props: {
     q: {
       type: String, 
       required: true
+    }, 
+    show: { 
+      type: Boolean, 
+      required: true
     }
   }, 
-  data: () => ({ 
-    show: false,
-  })
+  methods:{ 
+    onClick() { 
+      this.$emit('clicked');
+    }
+  }
 })
 </script>
 
@@ -34,18 +41,23 @@ export default defineComponent({
   padding-top:0.5em;
   padding-bottom:0.5em;
 }
-
-button { 
+.question { 
   align-items:center;
   justify-content:space-between;
   display:flex;
+  font-weight:300;
+  font-size:1.25em;
+  color: $color-neutral-text-blue2;
+}
+
+button:hover .question{
+   color: $color-primary-red;
+}
+button { 
  border: none;
  background: transparent;
- font-weight:bold;
  padding: 0;
  width:100%;
- font-size:1.25em;
- color: $color-neutral-text-blue2;
  .icon{ 
   color: $color-primary-red;
   font-size:2em;
@@ -70,15 +82,22 @@ button {
    transform-origin: top center;
    max-height: 0px;
    overflow:hidden;
+   text-align:left;
    transition: 0.2s all ease;
+   color: $color-neutral-text-blue2;
  }
 
  .faq-item.show{ 
+   .question{ 
+     font-weight:bold;
+     color: inherit;
+   }
    button{ 
      color: $color-neutral-text-blue1;
    }
    .answer{ 
      max-height:50px;
+     padding-right:2em;
    }
  }
 </style>

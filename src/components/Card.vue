@@ -1,14 +1,17 @@
 <template>
-  <div class="card row">
-    <div class="col-6">
+  <div class="wrapper">
+    <div class="card">
+      
       <div class="img-collection">
+        <img src="/img/bg-pattern-desktop.svg" class="bg-img">
         <img src="/img/illustration-woman-online-desktop.svg">
-        <img src="/img/bg-pattern-desktop.svg">
+      </div>
+      
+      <div class="card-body">
+        <slot></slot>   
       </div>
     </div>
-    <div class="col-6">
-      <slot></slot>   
-    </div>
+    <img src="/img/illustration-box-desktop.svg" class="box-img">
   </div>
 </template>
 
@@ -23,30 +26,44 @@ export default defineComponent({
 @import "./../styles/_variables.scss";
 
 .card{ 
+  box-sizing: border-box;
   background:white;
-  max-width: 100%;
   width: $width-desktop;
+  max-width: $width-desktop;
   padding: 4em;
+  padding-left:40%;
+  margin:8em;
   border-radius:1.5em;
+  min-height:600px;
   box-shadow: 0 2em 2em -1em rgba(0, 0, 0, 0.25);
-}
-.img-collection { 
-  position: relative;
-  margin-left:-10em;
+  overflow:hidden;
+  position:relative;
 }
 img{ 
   position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  display:block;
-  object-fit: contain;
+  top: 7.5%;
+  left: -10%;
+  width: 50%;
+  height:auto;
+  display: block;
+}
+img.bg-img{ 
+  transform-origin: right center;
+  transform: scale(200%);
+  top: -10%;
 }
 .row{ 
   display: flex;
+  justify-content: space-between;
 }
-.col-6{ 
-  width:50%;
+.wrapper{ 
+  position:relative;  
+}
+.box-img{
+  position: absolute;
+  left:-2.5%;
+  top: 42.5%;
+  width:20em;
+  height:auto;
 }
 </style>

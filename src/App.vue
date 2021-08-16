@@ -2,7 +2,7 @@
   <Card >
     <h1>FAQ</h1>
     <div>
-      <FAQItem v-for="(faqitem,index) of faq" :key="`faq${index}`" :q="faqitem.q">{{faqitem.a}}</FAQItem>
+      <FAQItem v-for="(faqitem,index) of faq" :key="`faq${index}`" :q="faqitem.q" @clicked="showing = index" :show="showing === index">{{faqitem.a}}</FAQItem>
     </div>
   </Card>
 </template>
@@ -19,6 +19,7 @@ export default defineComponent({
     FAQItem
   }, 
   data: () => ({ 
+    showing: 0,
     faq:[
       {
         q: 'How many team members can I invite?',
