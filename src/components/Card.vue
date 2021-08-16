@@ -89,6 +89,7 @@ export default defineComponent({
     max-width:$width-mobile;
     padding-left:0;
     padding-right:0;
+    padding-top:10em;
   }
   .card{ 
     padding-top:10em;
