@@ -38,16 +38,17 @@ export default defineComponent({
 @import "./../styles/_variables.scss";
 
 .faq-item{
-  padding-top:0.5em;
-  padding-bottom:0.5em;
+  padding-top:1em;
+  padding-bottom:1em;
 }
 .question { 
   align-items:center;
   justify-content:space-between;
   display:flex;
   font-weight:300;
-  font-size:1.25em;
+  font-size:1.15em;
   color: $color-neutral-text-blue2;
+  text-align: left;
 }
 
 button:hover .question{
@@ -60,7 +61,7 @@ button {
  width:100%;
  .icon{ 
   color: $color-primary-red;
-  font-size:2em;
+  font-size:1.25em;
   width:1em;
   display:inline-block;
   text-align:center;
@@ -83,6 +84,8 @@ button {
    max-height: 0px;
    overflow:hidden;
    text-align:left;
+   margin-top:1em;
+   line-height:1.5em;
    transition: 0.2s all ease;
    color: $color-neutral-text-blue2;
  }
@@ -96,7 +99,7 @@ button {
      color: $color-neutral-text-blue1;
    }
    .answer{ 
-     max-height:50px;
+     max-height:65px;
      padding-right:2em;
    }
  }

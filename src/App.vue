@@ -42,5 +42,11 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style lang="scss" scoped>
+@media screen and (max-width: 1440px) {
+  h1{ 
+      text-align: center;
+  }
+}
+
 </style>
