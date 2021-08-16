@@ -95,7 +95,7 @@ export default defineComponent({
     padding-left:2em;
     padding-right:2em;
     padding-bottom:2em;
-    min-height:auto;
+    min-height:675px;
     overflow:inherit;
   }
 
